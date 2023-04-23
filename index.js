@@ -69,9 +69,15 @@ app.get('/users/male-phone-price', (req, res) => {
 app.get('/users/last-name-quote-email', (req, res) => {
   User.find({
     last_name: { $regex: /^M/ },
-    // $where: 'this.quote.length > 15 && this.email.includes(toLowerCase(this.last_name))'
+    $where: 'this.quote.length > 15'
   }).then((result) => {
-    res.send(result);
+    let finalRes = [];
+    result.forEach(item => {
+      if (item.email.includes(item.last_name.toLowerCase())) {
+        finalRes = [...finalRes, item];
+      }
+    })
+    res.send(finalRes);
   }).catch((err) => {
     throw err;
   });
