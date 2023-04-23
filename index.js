@@ -40,8 +40,7 @@ const getIncome = (str) => {
 
 app.get('/users/income-bmw-mercedes', (req, res) => {
   User.find({
-    // income: { $lt: 5 },
-    car: { $in: ['BMW', 'Mercedes'] }
+    car: { $in: ['BMW', 'Mercedes-Benz'] }
   }).then((result) => {
     let finalRes = [];
     result.forEach(item => {
@@ -85,7 +84,7 @@ app.get('/users/last-name-quote-email', (req, res) => {
 
 app.get('/users/car-email', (req, res) => {
   User.find({
-    car: { $in: ['BMW', 'Mercedes', 'Audi'] },
+    car: { $in: ['BMW', 'Mercedes-Benz', 'Audi'] },
     email: { $not: { $regex: /\d/ } }
   }).then((result) => {
     res.send(result);
