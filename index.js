@@ -96,7 +96,7 @@ app.get('/users/car-email', (req, res) => {
 
 app.get('/cities/top-10', (req, res) => {
   User.aggregate([
-    { $group: { _id: '$address.city', count: { $sum: 1 }, totalIncome: { $sum: '$income' } } },
+    { $group: { _id: '$city', count: { $sum: 1 }, totalIncome: { $sum: { $toDouble: { $substr: ["$income", 1, -1] } } } } },
     { $sort: { count: -1 } },
     { $limit: 10 },
     { $project: { _id: 0, city: '$_id', count: 1, averageIncome: { $divide: ['$totalIncome', '$count'] } } }
@@ -108,5 +108,5 @@ app.get('/cities/top-10', (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log('Server listening on port 3000');
+  console.log('Server listening on http://localhost:3000/');
 });
