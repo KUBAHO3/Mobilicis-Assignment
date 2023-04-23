@@ -2,9 +2,10 @@
   "name": "mobilicis-assignment",
   "version": "1.0.0",
   "description": "This is the assignment given by Mobilicis company to test my knowledge on the MERN Stack",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
     "express": "^4.18.2",
     "lodash": "^4.17.21",
     "mongodb": "^5.3.0",
-    "mongoose": "^7.0.4"
+    "mongoose": "^7.0.4",
+    "nodemon": "^2.0.22"
   }
 }

@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
 const app = express();
-const mongoose = require('mongoose');
-const _ = require('lodash');
+import mongoose from 'mongoose';
+import _ from 'lodash';
 
 mongoose.connect('mongodb://0.0.0.0:27017/mydb', { useNewUrlParser: true });
 
@@ -33,12 +33,23 @@ app.get('/users', (req, res) => {
   });
 });
 
+const getIncome = (str) => {
+  const num = parseFloat(str.replace("$", ""));
+  return num;
+}
+
 app.get('/users/income-bmw-mercedes', (req, res) => {
   User.find({
     // income: { $lt: 5 },
     car: { $in: ['BMW', 'Mercedes'] }
   }).then((result) => {
-    res.send(result);
+    let finalRes = [];
+    result.forEach(item => {
+      if (getIncome(item.income) < 5) {
+        finalRes = [...finalRes, item];
+      }
+    })
+    res.send(finalRes);
   }).catch((err) => {
     throw err;
   });
@@ -47,7 +58,7 @@ app.get('/users/income-bmw-mercedes', (req, res) => {
 app.get('/users/male-phone-price', (req, res) => {
   User.find({
     gender: 'Male',
-    'phone_price': { $gt: 10000 }
+    phone_price: { $gt: 10000 }
   }).then((result) => {
     res.send(result);
   }).catch((err) => {
@@ -57,8 +68,8 @@ app.get('/users/male-phone-price', (req, res) => {
 
 app.get('/users/last-name-quote-email', (req, res) => {
   User.find({
-    lastName: { $regex: /^M/ },
-    $where: 'this.quote.length > 15 && this.email.includes(this.lastName)'
+    last_name: { $regex: /^M/ },
+    // $where: 'this.quote.length > 15 && this.email.includes(toLowerCase(this.last_name))'
   }).then((result) => {
     res.send(result);
   }).catch((err) => {
