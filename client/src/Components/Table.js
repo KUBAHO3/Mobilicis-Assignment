@@ -14,7 +14,7 @@ function DynamicTable({data}){
    const ThData =()=>{
       
        return newColumn.map((item)=>{
-           return <th key={item}>{item}</th>
+           return <th>{item}</th>
        })
    }
   // get table row data
