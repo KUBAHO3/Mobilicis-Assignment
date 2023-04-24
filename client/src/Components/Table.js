@@ -79,7 +79,8 @@ function fixedHeaderContent() {
           align={column.numeric || false ? 'right' : 'left'}
           style={{ width: column.width }}
           sx={{
-            backgroundColor: 'background.paper',
+            color: 'white',
+            backgroundColor: '#4287f5',
           }}
         >
           {column.label}

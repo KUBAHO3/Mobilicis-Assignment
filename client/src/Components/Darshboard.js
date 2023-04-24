@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Link from "next/link";
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -92,7 +93,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer() {
+export default function MiniDrawer({children}) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -134,8 +135,9 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Income-car_type', 'Male-Phone_price', 'Name-Email', 'Car_type-Email', 'Top_10_cities'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+          {[{label:'Income-car_type', link:'/income'},{label:'Male-Phone_price', link:'/male'},{label:'Name-Email', link:'/name'},{label:'Car_type-Email', link:'/car'},{label:'Top_10_cities', link:'/top'}].map((item, index) => (
+            <ListItem key={item.label} disablePadding sx={{ display: 'block' }}>
+             <Link href={item.link}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -156,8 +158,9 @@ export default function MiniDrawer() {
                   {index === 3 ? <DirectionsCarIcon /> : ''}
                   {index === 4 ? <ApartmentIcon /> : ''}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={item.label} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
+              </Link>
             </ListItem>
           ))}
         </List>
@@ -165,7 +168,8 @@ export default function MiniDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3, }}>
         <DrawerHeader />
-        <ReactVirtualizedTable/>
+        {/* <ReactVirtualizedTable/> */}
+        {children}
       </Box>
     </Box>
   );
