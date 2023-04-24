@@ -24,6 +24,7 @@ import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import { useRouter } from 'next/router';
+import Robot from './Robot';
 
 
 const drawerWidth = 240;
@@ -171,7 +172,7 @@ export default function MiniDrawer({children}) {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3, }}>
         <DrawerHeader />
-        {children}
+        {children? children: <Robot/>}
       </Box>
     </Box>
   );
