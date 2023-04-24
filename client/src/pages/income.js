@@ -6,7 +6,7 @@ import Head from 'next/head';
 export const getServerSideProps = async () => {
   let data = [];
   try {
-    const res = await fetch("http://localhost:5000/users/income-bmw-mercedes");
+    const res = await fetch("https://monilicsassignment.onrender.com/users/income-bmw-mercedes");
     data = await res.json();
     // console.log("Our data", data);
   } catch (error) {
