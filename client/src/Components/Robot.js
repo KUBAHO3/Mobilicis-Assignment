@@ -5,7 +5,7 @@ import Link from "next/link";
 function Robot() {
   return (
     <center>
-    <div className='robot-check'><h1>Click the Third Button😎</h1>
+    <div className='robot-check'><h1>Click the Third Button😎 to continue!</h1>
         <div className="button-grp">
             <button class="button">Nice</button>
             <button class="button">To</button>
