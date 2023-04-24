@@ -2,6 +2,7 @@
   "name": "mobilicis-assignment",
   "version": "1.0.0",
   "description": "This is the assignment given by Mobilicis company to test my knowledge on the MERN Stack",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index"
