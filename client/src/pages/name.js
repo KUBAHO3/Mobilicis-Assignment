@@ -7,7 +7,6 @@ export const getServerSideProps = async () => {
   try {
     const res = await fetch("http://localhost:5000/users/last-name-quote-email");
     data = await res.json();
-    // console.log("Our data", data);
   } catch (error) {
     console.log(error);
   }
@@ -20,9 +19,9 @@ export const getServerSideProps = async () => {
 };
 
 function Name({ people }) {
-//   console.log(people);
   return (
     <MiniDrawer>
+      <h4>Users whose last name starts with “M” and has a quote character length greater than 15 and email includes his/her last name.</h4>
       <DynamicTable data={people} />
     </MiniDrawer>
   );

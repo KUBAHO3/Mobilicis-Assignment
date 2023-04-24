@@ -3,7 +3,7 @@ function DynamicTable({data}){
    const column = Object.keys(data[0]);
    let newColumn = []
    if(column[0] === "_id" && column[1] === "id"){
-    for(var i=2; i<column.length; i++){
+    for(var i=2; i<column.length-1; i++){
      newColumn.push(column[i]);
    }
    }else{

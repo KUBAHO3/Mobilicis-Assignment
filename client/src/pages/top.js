@@ -23,6 +23,7 @@ function Top({ people }) {
 //   console.log(people);
   return (
     <MiniDrawer>
+      <h4>Data of top 10 cities which have the highest number of users and their average income.</h4>
       <DynamicTable data={people} />
     </MiniDrawer>
   );

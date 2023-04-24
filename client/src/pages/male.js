@@ -23,6 +23,7 @@ function Male({ people }) {
 //   console.log(people);
   return (
     <MiniDrawer>
+      <h4>Male Users which have phone price greater than 10,000.</h4>
       <DynamicTable data={people} />
     </MiniDrawer>
   );

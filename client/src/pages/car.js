@@ -24,6 +24,7 @@ function Car({ people }) {
 //   console.log(people);
   return (
     <MiniDrawer>
+      <h4>Users whith car of brand “BMW”, “Mercedes” or “Audi” and whose email does not include any digit.</h4>
       <DynamicTable data={people} />
     </MiniDrawer>
   );

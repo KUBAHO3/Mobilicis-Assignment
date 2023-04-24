@@ -3,7 +3,7 @@ const app = express();
 import mongoose from 'mongoose';
 import _ from 'lodash';
 
-mongoose.connect('mongodb://0.0.0.0:27017/mydb', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://kubaholinne:Ewv6zah7NLz57iYu@cluster0.wtqoxlh.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true });
 
 const userSchema = new mongoose.Schema({
   
@@ -68,11 +68,11 @@ app.get('/users/male-phone-price', (req, res) => {
 app.get('/users/last-name-quote-email', (req, res) => {
   User.find({
     last_name: { $regex: /^M/ },
-    $where: 'this.quote.length > 15'
+    // $where: 'this.quote.length > 15'
   }).then((result) => {
     let finalRes = [];
     result.forEach(item => {
-      if (item.email.includes(item.last_name.toLowerCase())) {
+      if (item.quote.length > 15 && item.email.includes(item.last_name.toLowerCase())) {
         finalRes = [...finalRes, item];
       }
     })

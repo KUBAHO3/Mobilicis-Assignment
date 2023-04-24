@@ -23,6 +23,7 @@ function Income({ people }) {
 //   console.log(people);
   return (
     <MiniDrawer>
+      <h4>Users whith income lower than $5 USD and have a car of brand “BMW” or “Mercedes”.</h4>
       <DynamicTable data={people} />
     </MiniDrawer>
   );
