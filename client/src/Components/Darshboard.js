@@ -24,7 +24,6 @@ import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 
-import ReactVirtualizedTable from './Table'
 
 const drawerWidth = 240;
 
@@ -168,7 +167,6 @@ export default function MiniDrawer({children}) {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3, }}>
         <DrawerHeader />
-        {/* <ReactVirtualizedTable/> */}
         {children}
       </Box>
     </Box>

@@ -106,6 +106,6 @@ app.get('/cities/top-10', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server listening on http://localhost:3000/');
+app.listen(5000, () => {
+  console.log('Server listening on http://localhost:5000/');
 });
