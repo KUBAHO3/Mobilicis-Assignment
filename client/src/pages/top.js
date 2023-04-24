@@ -20,7 +20,7 @@ export const getServerSideProps = async () => {
 };
 
 function Top({ people }) {
-  console.log(people);
+//   console.log(people);
   return (
     <MiniDrawer>
       <DynamicTable data={people} />

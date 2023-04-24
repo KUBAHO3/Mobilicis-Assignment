@@ -107,9 +107,9 @@ a {
   width: 100%;
 }
 
-#mytable > thead {
+/* #mytable > thead {
   position: sticky;
-}
+} */
 
 #mytable td, #mytable th {
   border: 1px solid #ddd;
