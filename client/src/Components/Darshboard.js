@@ -23,6 +23,7 @@ import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import ApartmentIcon from '@mui/icons-material/Apartment';
+import { useRouter } from 'next/router';
 
 
 const drawerWidth = 240;
@@ -104,6 +105,9 @@ export default function MiniDrawer({children}) {
     setOpen(false);
   };
 
+  const router = useRouter();
+  console.log("asPath: ", router.asPath)
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -135,7 +139,7 @@ export default function MiniDrawer({children}) {
         <Divider />
         <List>
           {[{label:'Income-car_type', link:'/income'},{label:'Male-Phone_price', link:'/male'},{label:'Name-Email', link:'/name'},{label:'Car_type-Email', link:'/car'},{label:'Top_10_cities', link:'/top'}].map((item, index) => (
-            <ListItem key={item.label} disablePadding sx={{ display: 'block' }}>
+            <ListItem key={item.label} disablePadding sx={{ display: 'block', background: router.asPath.includes(`${item.link}`) ? "#3eaef9" : "" }}>
              <Link href={item.link}>
               <ListItemButton
                 sx={{
