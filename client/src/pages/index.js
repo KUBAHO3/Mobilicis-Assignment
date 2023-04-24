@@ -7,7 +7,24 @@ import Robot from '@/Components/Robot'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export const getServerSideProps = async () => {
+  let data = [];
+  try {
+    const res = await fetch("https://monilicsassignment.onrender.com/cities/top-10");
+    data = await res.json();
+    // console.log("Our data", data);
+  } catch (error) {
+    console.log(error);
+  }
+
+  return {
+    props: {
+      people: data,
+    },
+  };
+};
+
+export default function Home({ people }) {
   return (
     <>
       <Head>
@@ -16,7 +33,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Robot/>
+      <Robot data = {people}/>
     </>
   )
 }
