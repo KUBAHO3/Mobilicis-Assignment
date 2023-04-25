@@ -8,7 +8,6 @@ export const getServerSideProps = async () => {
   try {
     const res = await fetch("https://monilicsassignment.onrender.com/users/income-bmw-mercedes");
     data = await res.json();
-    // console.log("Our data", data);
   } catch (error) {
     console.log(error);
   }
@@ -21,7 +20,6 @@ export const getServerSideProps = async () => {
 };
 
 function Income({ people }) {
-//   console.log(people);
   return (
     <>
     <Heading title={"Users with Income"}/>
