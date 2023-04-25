@@ -188,7 +188,7 @@ If you like this project please follow me on github & twitter and also connect o
 <!-- ACKNOWLEDGEMENTS -->
 
 ## :pray: Acknowledgments <a name="acknowledgements"></a>
-- I would like to thank Microverse for this exercise. <br>
+- I would like to thank Mobilicis for this exercise. <br>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
